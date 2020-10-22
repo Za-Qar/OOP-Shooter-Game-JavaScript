@@ -9,9 +9,9 @@ const gameOptions = {
   world: new World(400, 500),
   obstacles: [
     // table
-    new Obstacle({ x: 50, y: 50 }),
+    new Obstacle({ x: 400, y: 500 }),
     // table2
-    new Obstacle({ x: 100, y: 150 }),
+    new Obstacle({ x: 600, y: 100 }),
   ],
 };
 
@@ -33,13 +33,12 @@ window.addEventListener("keydown", handler);
 window.addEventListener("keyup", handler);
 
 const clickHandler = (e) => {
-  console.log(e);
-  // ctx.fillStyle = '#EBEBEB';
-  // ctx.fillRect(e.clientX , e.clientY , 50, 50);
+  // ctx.fillStyle = "red";
+  // ctx.fillRect(e.x, e.y, 50, 50);
 
-  game.players[0].fire({x: e.clientX, y:e.clientY})
-  
-}
+  // produce the shot
+  game.players[0].fire({ x: e.x, y: e.y });
+};
 
 canvas.addEventListener("click", clickHandler);
 //Later: OnMouseDown provide automatic fire

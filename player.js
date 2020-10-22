@@ -3,8 +3,8 @@ class Player {
     this.health = health;
     this.x = x;
     this.y = y;
-    this.changeInX = 10;
-    this.changeInY = 10;
+    this.changeInX = 20;
+    this.changeInY = 20;
     this.shotsFired = [];
   }
 
@@ -26,13 +26,13 @@ class Player {
     //     : 0;
     let changeInX;
     let changeInY;
-        if(keysPressed.KeyW || keysPressed.ArrowUp){
-          changeInY = this.changeInY
-        } else if (keysPressed.KeyS || keysPressed.ArrowDown){
-          changeInY = -this.changeInY
-        } else {
-          changeInY = 0;
-        }
+    if (keysPressed.KeyW || keysPressed.ArrowUp) {
+      changeInY = this.changeInY;
+    } else if (keysPressed.KeyS || keysPressed.ArrowDown) {
+      changeInY = -this.changeInY;
+    } else {
+      changeInY = 0;
+    }
 
     // const changeInX =
     //   keysPressed.KeyA || keysPressed.ArrowLeft
@@ -40,13 +40,13 @@ class Player {
     //     : keysPressed.KeyD || keysPressed.ArrowRight
     //     ? this.changeInX
     //     : 0;
-        if(keysPressed.KeyD || keysPressed.ArrowLeft){
-          changeInX = this.changeInX
-        } else if (keysPressed.KeyA || keysPressed.ArrowRight){
-          changeInX = -this.changeInX
-        } else {
-          changeInX = 0;
-        }
+    if (keysPressed.KeyD || keysPressed.ArrowLeft) {
+      changeInX = this.changeInX;
+    } else if (keysPressed.KeyA || keysPressed.ArrowRight) {
+      changeInX = -this.changeInX;
+    } else {
+      changeInX = 0;
+    }
 
     this.moveBy(changeInX, changeInY);
   }
@@ -77,11 +77,11 @@ class Player {
     // console.log("Moved to", { x: this.x, y: this.y });
   }
 
-  fire({x, y}) {
-    const shot = new Shot({x: this.x, y: this.y}, {x, y})
+  fire({ x, y }) {
+    const shot = new Shot({ x: this.x, y: this.y }, { x, y });
     this.shotsFired.push(shot);
-    console.log(shot);
-    console.log(this.shotsFired);
+    // console.log(shot);
+    // console.log(this.shotsFired);
   }
 
   onBulletCollision() {

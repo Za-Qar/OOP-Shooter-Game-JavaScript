@@ -3,4 +3,6 @@ class Obstacle {
     this.x = x;
     this.y = y;
   }
+  // set size/coordinates
+  // check if bullet is inside of that.
 }
