@@ -102,6 +102,8 @@ class Game {
       // Need unique colour for each player.
       ctx.fillStyle = "rgba(100, 100, 230, 0.5)";
       ctx.fillRect(player.x, this.world.height - player.y, 100, 100); // Should not be 10, 10 -- but instead use instance's state.
+      ctx.font = "30px Arial";
+      ctx.fillText(`HP ${player.health}`, player.x, canvas.height - player.y - 700);
       for (const shot of player.shotsFired) {
         console.log("About to render bullet");
         ctx.fillStyle = "red";
@@ -109,10 +111,14 @@ class Game {
       }
     }
 
+    
+
     // Draw obstacles
     for (const obstacle of this.obstacles) {
       ctx.fillStyle = "rgba(50, 50, 40, 0.3)";
       ctx.fillRect(obstacle.x, obstacle.y, 40, 40);
+      ctx.font = "30px Arial";
+      ctx.fillText(`HP ${obstacle.health}`, obstacle.x, canvas.height - obstacle.y );
     }
 
     if (new Date().getTime() >= tenSeconds) {

@@ -9,9 +9,9 @@ const gameOptions = {
   world: new World(400, 500),
   obstacles: [
     // table
-    new Obstacle({ x: 400, y: 500 }),
+    new Obstacle(50, { x: 400, y: 500 }),
     // table2
-    new Obstacle({ x: 600, y: 100 }),
+    new Obstacle(50, { x: 600, y: 100 }),
   ],
 };
 

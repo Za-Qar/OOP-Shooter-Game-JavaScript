@@ -87,6 +87,7 @@ class Player {
   onBulletCollision() {
     this.health--;
   }
+
 }
 
 const keysPressed = {};
