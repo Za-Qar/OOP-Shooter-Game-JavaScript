@@ -11,4 +11,6 @@ class Shot {
     this.x += this.changeInX;
     this.y += this.changeInY;
   }
+
+  
 }

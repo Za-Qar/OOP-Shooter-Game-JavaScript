@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  canvas {
+    height: 90vh;
+    width: 90vw;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    display: block;
+  }
+  
