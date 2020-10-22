@@ -1,44 +1,26 @@
 const gameOptions = {
-  players: [
+  player:
     // Player
-    new Player(100, { x: 300, y: 100 }),
+    new Player(100, { x: 300, y: 100, width: 100, height: 141 }),
 
-    // Computer
-    // new Player(100, { x: 0, y: 0 }),
-  ],
+  // Computer
+  // new Player(100, { x: 0, y: 0 }),
+
   world: new World(400, 500),
   obstacles: [
     // table
-    new Obstacle(50, { x: 400, y: 500 }),
+    new Obstacle(50, { x: 200, y: 200, height: 50, width: 50 }),
     // table2
-    new Obstacle(50, { x: 600, y: 100 }),
+    new Obstacle(50, { x: 300, y: 300, height: 50, width: 50 }),
   ],
 };
 
 const game = new Game(gameOptions);
 game.start();
 
-// https://stackoverflow.com/a/12444641
-const handler = (e) => {
-  if (
-    !/^Key[WASD]$/.test(e.code) &&
-    !/^Arrow(Up|Left|Right|Down)$/.test(e.code)
-  ) {
-    return;
-  }
-  keysPressed[e.code] = e.type === "keydown";
-};
+// const clickHandler = (e) => {
+//   // produce the shot
+//   game.players[0].fire({ x: e.x, y: e.y });
+// };
 
-window.addEventListener("keydown", handler);
-window.addEventListener("keyup", handler);
-
-const clickHandler = (e) => {
-  // ctx.fillStyle = "red";
-  // ctx.fillRect(e.x, e.y, 50, 50);
-
-  // produce the shot
-  game.players[0].fire({ x: e.x, y: e.y });
-};
-
-canvas.addEventListener("click", clickHandler);
-//Later: OnMouseDown provide automatic fire
+// canvas.addEventListener("click", clickHandler);
