@@ -71,10 +71,10 @@ class Player {
   }
 
   moveBy(changeInX, changeInY) {
-    console.log("Moving by", { changeInX, changeInY });
+    // console.log("Moving by", { changeInX, changeInY });
     this.x += changeInX;
     this.y += changeInY;
-    console.log("Moved to", { x: this.x, y: this.y });
+    // console.log("Moved to", { x: this.x, y: this.y });
   }
 
   fire({x, y}) {

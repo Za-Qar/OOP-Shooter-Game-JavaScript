@@ -16,7 +16,7 @@ const gameOptions = {
 };
 
 const game = new Game(gameOptions);
-// game.start();
+game.start();
 
 // https://stackoverflow.com/a/12444641
 const handler = (e) => {
@@ -34,8 +34,8 @@ window.addEventListener("keyup", handler);
 
 const clickHandler = (e) => {
   console.log(e);
-  ctx.fillStyle = '#EBEBEB';
-  ctx.fillRect(e.clientX , e.clientY , 50, 50);
+  // ctx.fillStyle = '#EBEBEB';
+  // ctx.fillRect(e.clientX , e.clientY , 50, 50);
 
   game.players[0].fire({x: e.clientX, y:e.clientY})
   

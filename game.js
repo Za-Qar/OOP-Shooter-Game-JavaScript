@@ -14,6 +14,9 @@ class Game {
 
     for (const player of this.players) {
       player.move();
+      for (const shot of player.shotsFired){
+        shot.move();
+      }
     }
 
   //Canvas Start -------------------------------------------
@@ -91,6 +94,11 @@ class Game {
       // Need unique colour for each player.
       ctx.fillStyle = "rgba(100, 100, 230, 0.5)";
       ctx.fillRect(player.x, this.world.height - player.y, 100, 100); // Should not be 10, 10 -- but instead use instance's state.
+      for (const shot of player.shotsFired){
+        ctx.fillStyle = "red";
+        ctx.fillRect(shot.x, this.world.height - shot.y, 50, 50); 
+        console.log(shot);
+      }
     }
 
     // Draw obstacles
@@ -100,9 +108,10 @@ class Game {
     }
 
     //Bullet
+    
 
-    console.log("rendered");
-
+    // console.log("rendered");
+    // return;
     requestAnimationFrame(this.start.bind(this));
 
     // render the world with every loop
