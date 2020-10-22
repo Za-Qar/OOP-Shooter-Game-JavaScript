@@ -57,19 +57,27 @@ Cond2. If A's right edge is to the left of the B's left edge, - then A is Totall
 Cond3. If A's top edge is below B's bottom edge, - then A is Totally below B
 Cond4. If A's bottom edge is above B's top edge, - then A is Totally above B
     */
+
+    
     if (
       this.obstacles.some((o) => {
         // player bottom vs obstacle top
 
-        if (player.y + player.height > o.y) {
-          console.log("player is below object");
-        }
-        if (player.x + player.width > o.x) {
-          console.log("player is to the right of object");
-        }
-        if (player.y < o.y + o.height) {
-          console.log("player is above object");
-        }
+        // if (player.y + player.height > o.y) {
+        //   console.log("player is below object");
+        // }
+        // if (player.x + player.width > o.x) {
+        //   console.log("player is to the right of object");
+        // }
+        // if (player.y < o.y + o.height) {
+        //   console.log("player is above object");
+        // }
+
+
+        // if ((player.x + player.width)>=(o.x) + (player.x)<=(o.X + o.width)&&(player.y + player.health) >= (o.y) && (player.y)<=(o.y + o.height)){
+        //   console.log("collision occured")
+        // }
+
         // if (player.y < o.y + o.height) {
         //   console.log("player is above object");
         // }
