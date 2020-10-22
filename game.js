@@ -118,7 +118,7 @@ class Game {
       ctx.fillStyle = "rgba(50, 50, 40, 0.3)";
       ctx.fillRect(obstacle.x, obstacle.y, 40, 40);
       ctx.font = "30px Arial";
-      ctx.fillText(`HP ${obstacle.health}`, obstacle.x, canvas.height - obstacle.y );
+      ctx.fillText(`HP ${obstacle.health}`, obstacle.x + 35, obstacle.y - 10);
     }
 
     if (new Date().getTime() >= tenSeconds) {
