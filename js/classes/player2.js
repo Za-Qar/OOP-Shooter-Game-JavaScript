@@ -17,7 +17,19 @@ class Player2 extends Player {
     }
   }
 
-  fire() {
-    console.log("Computer fired, but shouldn't have");
+  fire(to) {
+    console.log("Fired at Player 2", to);
+    const shot = new Shot({
+      // Magic numbers are to make shot "appear" to come from weapons.
+      from: {
+        x: this.x + 80,
+        y: this.y + 40,
+      },
+      to,
+      height: 5,
+      width: 5,
+      owner: this,
+    });
+    this.shotsFired.push(shot);
   }
 }

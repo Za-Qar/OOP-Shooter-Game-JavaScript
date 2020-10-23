@@ -63,4 +63,11 @@ class Thing {
       y: this.y + this.height,
     };
   }
+
+  get center() {
+    return {
+      x: this.x + this.width / 2,
+      y: this.y + this.height / 2,
+    };
+  }
 }

@@ -68,10 +68,42 @@ class Game {
       player.moveBy(-changeInX, -changeInY);
     }
 
-    changeInX = (Math.random() > 0.5 ? 1 : -1) * 1;
-    changeInY = (Math.random() > 0.5 ? 1 : -1) * 1;
+    changeInX = (Math.random() > 0.5 ? 1 : -1) * 10;
+    changeInY = (Math.random() > 0.5 ? 1 : -1) * 10;
 
+    //Player 2 move and shoot
     player2.moveBy(changeInX, changeInY);
+
+    if (player2.shotsFired.length < 10){
+      player2.fire({x: player.center.x, y: player.center.y})
+    }
+
+    //Make player2 bullets disappear
+    player2.shotsFired = player2.shotsFired.filter((shot) => {
+      if (player.collidesWith(shot)) {
+        player.health = Math.max(player.health - 10, 0);
+        return false;
+      }
+      return true;
+    });
+    // TODO: This shouldn't happen. Expose a method to improve this.
+    player2.shotsFired = player2.shotsFired.filter((shot) =>
+      shot.collidesWith(this.world)
+    );
+
+    player2.shotsFired = player2.shotsFired.filter((shot) => {
+      // shot has hit at least one object
+      const collidedWithObst = !this.obstacles.some((obstacle) => {
+        if (shot.collidesWith(obstacle)) {
+          obstacle.health = Math.max(obstacle.health - 10, 0);
+          return true;
+        }
+        return false;
+      });
+      return collidedWithObst;
+    });
+    
+    
 
     if (
       // player has gone outside world/map?
@@ -83,11 +115,17 @@ class Game {
       player2.moveBy(-changeInX, -changeInY);
     }
 
-    // move shots
+    // move shots Player1
     for (const shot of player.shotsFired) {
       shot.move();
     }
 
+    // move shots Player2
+    for (const shot of player2.shotsFired) {
+      shot.move();
+    }
+
+    //Make player1 bullets disappear
     player.shotsFired = player.shotsFired.filter((shot) => {
       if (player2.collidesWith(shot)) {
         player2.health = Math.max(player2.health - 10, 0);
