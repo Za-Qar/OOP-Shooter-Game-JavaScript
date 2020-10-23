@@ -89,20 +89,28 @@ class Game {
       shot.move();
     }
 
+    //  player.shotsFired = player.shotsFired.filter((shot) => {
+    //   const collidedWithPlayer2 = shot.collidesWith(player2);
+    //   console.log("hit player");
+    //   player2.health = Math.max(player2.health - 10, 0);
+    //   return !collidedWithPlayer2;
+    // })
+
     // TODO: This shouldn't happen. Expose a method to improve this.
     player.shotsFired = player.shotsFired.filter((shot) =>
       shot.collidesWith(this.world)
-    );
-    player.shotsFired = player.shotsFired.filter((shot) => {
+    ); player.shotsFired = player.shotsFired.filter((shot) => {
       // shot has hit at least one object
-      return !this.obstacles.some((obstacle) => {
+      const collidedWithObst = !this.obstacles.some((obstacle) => {
         if (shot.collidesWith(obstacle)) {
           obstacle.health = Math.max(obstacle.health - 10, 0);
           return true;
         }
         return false;
       });
+      return collidedWithObst;
     });
+   
   }
 
   start() {

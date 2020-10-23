@@ -1,5 +1,5 @@
 class Player extends MovableThing {
-  constructor(health, { x, y, height, width },) {
+  constructor(health, { x, y, height, width }, onMouseClick,) {
     super({ x, y, height, width, changeInX: 10, changeInY: 10 });
 
     this.health = health;
@@ -8,12 +8,14 @@ class Player extends MovableThing {
     this.shotsFired = [];
 
     this.imageSrc = "images/Artboard0.png";
-
+    
+    if (onMouseClick){
+      canvas.addEventListener("click", (e) => {
+        this.fire({ x: e.x, y: e.y });
+      });
+    }
     // Listen for mouse events
-    canvas.addEventListener("click", (e) => {
-      this.fire({ x: e.x, y: e.y });
-    });
-  }
+    }
 
   moveBy(changeInX, changeInY) {
     super.moveBy(changeInX, changeInY);

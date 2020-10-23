@@ -1,6 +1,7 @@
 class Player2 extends Player{
     constructor(health, { x, y, height, width }, imageSrc) {
         super(health, { x, y, height, width, changeInX: 10, changeInY: 10 }, imageSrc);
+        // console.assert(this.)
     }
       moveBy(changeInX, changeInY) {
         super.moveBy(changeInX, changeInY);
