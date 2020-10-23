@@ -35,6 +35,7 @@ class Game {
    */
   updateModel() {
     const player = this.players[0];
+    const player2 = this.players[1];
 
     let changeInY;
     if (this.keysPressed.KeyW) {
@@ -66,6 +67,22 @@ class Game {
       // move the player back.
       player.moveBy(-changeInX, -changeInY);
     }
+
+    changeInX = (Math.random() > 0.5 ? 1 : -1) * 10;
+    changeInY = (Math.random() > 0.5 ? 1 : -1) * 10;
+
+    player2.moveBy(changeInX, changeInY);
+
+    if (
+      // player has gone outside world/map?
+      player2.extendsBeyond(this.world) ||
+      // player collides with some obstable?
+      this.obstacles.some((obstacle) => player2.collidesWith(obstacle))
+    ) {
+      // move the player back.
+      player2.moveBy(-changeInX, -changeInY);
+    }
+
 
     // move shots
     for (const shot of player.shotsFired) {
