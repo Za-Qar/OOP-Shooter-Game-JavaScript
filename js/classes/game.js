@@ -73,10 +73,7 @@ class Game {
 
     //Player 2 move and shoot
     player2.moveBy(changeInX, changeInY);
-
-    if (player2.shotsFired.length < 10){
-      player2.fire({x: player.center.x, y: player.center.y})
-    }
+    player2.fire({ x: player.center.x, y: player.center.y });
 
     //Make player2 bullets disappear
     player2.shotsFired = player2.shotsFired.filter((shot) => {
@@ -102,8 +99,6 @@ class Game {
       });
       return collidedWithObst;
     });
-    
-    
 
     if (
       // player has gone outside world/map?

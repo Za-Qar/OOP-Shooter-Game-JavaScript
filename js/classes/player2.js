@@ -6,7 +6,7 @@ class Player2 extends Player {
       imageSrc,
       false
     );
-    // console.assert(this.)
+    this.lastFiredAt = new Date().getTime();
   }
   moveBy(changeInX, changeInY) {
     super.moveBy(changeInX, changeInY);
@@ -17,8 +17,16 @@ class Player2 extends Player {
     }
   }
 
+  get shouldFire() {
+    return new Date().getTime() > this.lastFiredAt + 1e3;
+  }
+
   fire(to) {
-    console.log("Fired at Player 2", to);
+    if (!this.shouldFire) {
+      console.log("Chose to not fire");
+      return;
+    }
+    // console.log("Fired at Player 2", to);
     const shot = new Shot({
       // Magic numbers are to make shot "appear" to come from weapons.
       from: {
