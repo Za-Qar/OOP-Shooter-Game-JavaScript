@@ -1,7 +1,16 @@
 const gameOptions = {
   players: [
-    new Player(100, { x: 300, y: 100, width: 100, height: 141 }, "images/Artboard0.png", true),
-    new Player2(100, { x: 600, y: 200, width: 100, height: 141 }, "images/player2.png")
+    new Player(
+      100,
+      { x: 300, y: 100, width: 100, height: 141 },
+      "images/Artboard0.png",
+      true
+    ),
+    new Player2(
+      100,
+      { x: 600, y: 200, width: 100, height: 141 },
+      "images/player2.png"
+    ),
   ],
   // player: new Player(100, { x: 300, y: 100, width: 100, height: 141 }),
   // player2: new Player2(100, { x: 600, y: 200, width: 100, height: 141 }),

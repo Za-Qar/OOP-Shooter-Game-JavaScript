@@ -1,5 +1,5 @@
 class Player extends MovableThing {
-  constructor(health, { x, y, height, width }, onMouseClick,) {
+  constructor(health, { x, y, height, width }, imageSrc, onMouseClick) {
     super({ x, y, height, width, changeInX: 10, changeInY: 10 });
 
     this.health = health;
@@ -7,15 +7,15 @@ class Player extends MovableThing {
     // this.changeInY = 1;
     this.shotsFired = [];
 
-    this.imageSrc = "images/Artboard0.png";
-    
-    if (onMouseClick){
+    this.imageSrc = imageSrc; //;
+
+    if (onMouseClick) {
       canvas.addEventListener("click", (e) => {
         this.fire({ x: e.x, y: e.y });
       });
     }
     // Listen for mouse events
-    }
+  }
 
   moveBy(changeInX, changeInY) {
     super.moveBy(changeInX, changeInY);
@@ -27,6 +27,7 @@ class Player extends MovableThing {
   }
 
   fire(to) {
+    console.log("Fired at", to);
     const shot = new Shot({
       // Magic numbers are to make shot "appear" to come from weapons.
       from: {

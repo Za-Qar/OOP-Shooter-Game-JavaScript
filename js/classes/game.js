@@ -68,8 +68,8 @@ class Game {
       player.moveBy(-changeInX, -changeInY);
     }
 
-    changeInX = (Math.random() > 0.5 ? 1 : -1) * 10;
-    changeInY = (Math.random() > 0.5 ? 1 : -1) * 10;
+    changeInX = (Math.random() > 0.5 ? 1 : -1) * 1;
+    changeInY = (Math.random() > 0.5 ? 1 : -1) * 1;
 
     player2.moveBy(changeInX, changeInY);
 
@@ -83,23 +83,25 @@ class Game {
       player2.moveBy(-changeInX, -changeInY);
     }
 
-
     // move shots
     for (const shot of player.shotsFired) {
       shot.move();
     }
 
-    //  player.shotsFired = player.shotsFired.filter((shot) => {
-    //   const collidedWithPlayer2 = shot.collidesWith(player2);
-    //   console.log("hit player");
-    //   player2.health = Math.max(player2.health - 10, 0);
-    //   return !collidedWithPlayer2;
-    // })
+    player.shotsFired = player.shotsFired.filter((shot) => {
+      if (player2.collidesWith(shot)) {
+        player2.health = Math.max(player2.health - 10, 0);
+        return false;
+      }
+      return true;
+    });
 
     // TODO: This shouldn't happen. Expose a method to improve this.
     player.shotsFired = player.shotsFired.filter((shot) =>
       shot.collidesWith(this.world)
-    ); player.shotsFired = player.shotsFired.filter((shot) => {
+    );
+
+    player.shotsFired = player.shotsFired.filter((shot) => {
       // shot has hit at least one object
       const collidedWithObst = !this.obstacles.some((obstacle) => {
         if (shot.collidesWith(obstacle)) {
@@ -110,7 +112,6 @@ class Game {
       });
       return collidedWithObst;
     });
-   
   }
 
   start() {
