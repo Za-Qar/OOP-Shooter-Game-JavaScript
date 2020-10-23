@@ -24,4 +24,4 @@ const gameOptions = {
 };
 
 const game = new Game(gameOptions);
-game.start();
+

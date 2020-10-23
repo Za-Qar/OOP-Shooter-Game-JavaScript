@@ -145,13 +145,23 @@ class Game {
       });
       return collidedWithObst;
     });
+
   }
 
-  start() {
-    this.updateModel();
 
+
+  start() {
+    
+    this.updateModel();
+    
     const ctx = this.ctx;
     const player = this.players[0];
+        if(player.health===0){
+          //lose
+          return alert("Game Over")
+        } else if (player2.health === 0){
+          //win
+        }
     const player2 = this.players[1];
 
     //Canvas Start -------------------------------------------
