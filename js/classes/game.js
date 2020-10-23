@@ -68,8 +68,8 @@ class Game {
       player.moveBy(-changeInX, -changeInY);
     }
 
-    changeInX = (Math.random() > 0.5 ? 1 : -1) * 10;
-    changeInY = (Math.random() > 0.5 ? 1 : -1) * 10;
+    changeInX = (Math.random() > 0.5 ? 1 : -1) * 20;
+    changeInY = (Math.random() > 0.5 ? 1 : -1) * 20;
 
     //Player 2 move and shoot
     player2.moveBy(changeInX, changeInY);

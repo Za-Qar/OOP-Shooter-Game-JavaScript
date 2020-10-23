@@ -4,11 +4,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Syne Mono", monospace;
 }
-
+h1 {
+  text-align: center;
+}
 .font1,
 .font2 {
-  font-family: "Syne Mono", monospace;
   margin: 3px;
 }
 
@@ -19,10 +21,18 @@
   color: blue;
 }
 
+.background {
+  width: auto;
+  height: 60vh;
+  text-align: center;
+  margin: auto;
+}
+
 .container {
   background-color: white;
   padding: 2rem;
   border-radius: 30px;
+  text-align: center;
 }
 
 .overlay {
@@ -55,6 +65,7 @@
   cursor: pointer;
   margin-top: 30px;
   font-family: "Syne Mono", monospace;
+  font-size: 1em;
 }
 
 .btn:hover {
