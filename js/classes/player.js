@@ -1,5 +1,5 @@
 class Player extends MovableThing {
-  constructor(health, { x, y, height, width }) {
+  constructor(health, { x, y, height, width },) {
     super({ x, y, height, width, changeInX: 10, changeInY: 10 });
 
     this.health = health;

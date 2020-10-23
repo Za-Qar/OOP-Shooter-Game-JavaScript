@@ -6,8 +6,8 @@ class Game {
    *
    * @param {{player: Player, world: World, obstacles: Obstacle[]}} gameOptions
    */
-  constructor({ player, world, obstacles }) {
-    this.player = player;
+  constructor({ players, world, obstacles }) {
+    this.players = players;
     this.world = world;
     this.obstacles = obstacles;
     this.keysPressed = {};
@@ -34,7 +34,7 @@ class Game {
    * Should update all data. Shouldn't render anything in this function.
    */
   updateModel() {
-    const player = this.player;
+    const player = this.players[0];
 
     let changeInY;
     if (this.keysPressed.KeyW) {
@@ -92,7 +92,8 @@ class Game {
     this.updateModel();
 
     const ctx = this.ctx;
-    const player = this.player;
+    const player = this.players[0];
+    const player2 = this.players[1];
 
     //Canvas Start -------------------------------------------
 
@@ -205,27 +206,29 @@ class Game {
       ctx.strokeRect(obstacle.x, obstacle.y - 40, obstacle.width, 20);
     }
 
-    // Player sprite
-    let img = new Image();
-    img.src = player.imageSrc;
-    ctx.drawImage(img, player.x, player.y, player.width, player.height);
+    for (const player of this.players) {
+      // Player sprite
+      let img = new Image();
+      img.src = player.imageSrc;
+      ctx.drawImage(img, player.x, player.y, player.width, player.height);
 
-    // Player HP bar
-    ctx.fillStyle =
-      player.health > 60 ? "green" : player.health > 40 ? "yellow" : "red";
-    ctx.fillRect(
-      player.x,
-      player.y - 20,
-      (player.health / 100) * player.width,
-      20
-    );
-    ctx.strokeStyle = "black";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(player.x, player.y - 20, player.width, 20);
+      // Player HP bar
+      ctx.fillStyle =
+        player.health > 60 ? "green" : player.health > 40 ? "yellow" : "red";
+      ctx.fillRect(
+        player.x,
+        player.y - 20,
+        (player.health / 100) * player.width,
+        20
+      );
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 2;
+      ctx.strokeRect(player.x, player.y - 20, player.width, 20);
 
-    for (const shot of player.shotsFired) {
-      ctx.fillStyle = "goldenrod";
-      ctx.fillRect(shot.x, shot.y, 7, 7);
+      for (const shot of player.shotsFired) {
+        ctx.fillStyle = "goldenrod";
+        ctx.fillRect(shot.x, shot.y, 7, 7);
+      }
     }
 
     requestAnimationFrame(this.start.bind(this));
