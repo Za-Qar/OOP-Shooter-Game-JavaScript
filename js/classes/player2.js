@@ -18,26 +18,24 @@ class Player2 extends Player {
   }
 
   get shouldFire() {
-    return new Date().getTime() > this.lastFiredAt + 1e3;
+    return new Date().getTime() > this.lastFiredAt + 1000;
   }
 
   fire(to) {
-    if (!this.shouldFire) {
-      console.log("Chose to not fire");
-      return;
+    if (this.shouldFire) {
+      this.lastFiredAt = new Date().getTime();
+      const shot = new Shot({
+        // Magic numbers are to make shot "appear" to come from weapons.
+        from: {
+          x: this.x + 80,
+          y: this.y + 40,
+        },
+        to,
+        height: 5,
+        width: 5,
+        owner: this,
+      });
+      this.shotsFired.push(shot);
     }
-    // console.log("Fired at Player 2", to);
-    const shot = new Shot({
-      // Magic numbers are to make shot "appear" to come from weapons.
-      from: {
-        x: this.x + 80,
-        y: this.y + 40,
-      },
-      to,
-      height: 5,
-      width: 5,
-      owner: this,
-    });
-    this.shotsFired.push(shot);
   }
 }
