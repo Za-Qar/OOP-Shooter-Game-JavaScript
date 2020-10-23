@@ -18,19 +18,24 @@
   </head>
 
   <body>
+    <!-- Start of start screen -->
     <section id="start" class="screen overlay">
-      <div id="start-container"><h1><span class="font1">Shooty</span> <span class="font2">McBeardface</span></h1>  
-      <button id="start-button" class="btn">Start Game</button>
-    </div>
-    
+      <div class="container">
+        <h1>
+          <span class="font1">Shooty</span>
+          <span class="font2">McBeardface</span>
+        </h1>
+        <button id="start-button" class="btn">Start Game</button>
+      </div>
     </section>
-
+    <!-- Start of end screen -->
     <section id="end" class="screen overlay hidden">
-      <div id="end-container"><h1>You Lost</h1> 
-      <button id="end-button" class="btn">Replay</button>
-    </div>
-     
+      <div class="container">
+        <h1 id="result"></h1>
+        <button id="replay-button" class="btn">Replay</button>
+      </div>
     </section>
+    <!-- Canvas here -->
     <canvas id="draw-here" class="hidden"></canvas>
   </body>
 </html>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap");
 
 * {
   margin: 0;
@@ -6,8 +6,9 @@
   box-sizing: border-box;
 }
 
-.font1, .font2 {
-  font-family: 'Syne Mono', monospace;
+.font1,
+.font2 {
+  font-family: "Syne Mono", monospace;
   margin: 3px;
 }
 
@@ -18,10 +19,7 @@
   color: blue;
 }
 
-
-
-
-#start-container {
+.container {
   background-color: white;
   padding: 2rem;
   border-radius: 30px;
@@ -30,10 +28,10 @@
 .overlay {
   height: 100vh;
   width: 100vw;
-  background-color: rgba(10,10,10, 0.7);
+  background-color: rgba(10, 10, 10, 0.7);
   display: flex;
   flex-direction: column;
-  align-items:  center;
+  align-items: center;
   justify-content: center;
 }
 
@@ -56,7 +54,7 @@
   color: white;
   cursor: pointer;
   margin-top: 30px;
-  font-family: 'Syne Mono', monospace;
+  font-family: "Syne Mono", monospace;
 }
 
 .btn:hover {

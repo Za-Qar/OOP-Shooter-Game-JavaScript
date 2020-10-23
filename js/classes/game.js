@@ -145,25 +145,29 @@ class Game {
       });
       return collidedWithObst;
     });
-
   }
 
-
-
   start() {
-    
     this.updateModel();
-    
+
     const ctx = this.ctx;
     const player = this.players[0];
     const player2 = this.players[1];
-        if(player.health===0){
-          //lose
-          return alert("Game Over")
-        } else if (player2.health === 0){
-          //win
-        }
-    
+
+    // player.health = 0;
+
+    if (player.health === 0) {
+      result.innerText = "You lose!";
+      canvasShow.classList.add("hidden");
+      endScreen.classList.remove("hidden");
+      //lose
+      return;
+    } else if (player2.health === 0) {
+      result.innerText = "You win!";
+      canvasShow.classList.add("hidden");
+      endScreen.classList.remove("hidden");
+      //win
+    }
 
     //Canvas Start -------------------------------------------
 

@@ -22,6 +22,3 @@ const gameOptions = {
     new Obstacle(200, { x: 600, y: 400, height: 70, width: 90 }),
   ],
 };
-
-const game = new Game(gameOptions);
-
