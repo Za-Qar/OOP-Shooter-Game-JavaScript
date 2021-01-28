@@ -1,19 +1,25 @@
-# Game Hackathon
+# OOP Shooty Mc Beard Face game
 
-For the next two days we are going to design and build our own game. It is an opportunity to cement what we've learnt about object oriented programming, as well as planning, ideating and MVP.
+During a two day hackathon, my teammate and I started planning thinking of an interesting and fun game to play. We came up with the concept of Shooty Mc Bear Face and begun. We first made a detailed plan of what classes we will have, what states they will contain and what their behaviours will be. We then started coding and iterating over the plan in an agile fashion. We faced some issues such as creating a computer player for the user to play against and it was solved changing the position of the computer player randomly then writing out some logic regarding what would happen when the bullets touch either player or the obstacles in the map. We used Math.max to limit the player’s health and also gave the player the capability to move around the map using x and y positions in the Canvas and also to shoot with the left mouse button. We finished our MVP within the time frame given to us. [View project](https://shooty-mc-beard-face.netlify.app).
 
-## Task 1 - Wed afternoon
+## Built with
 
-Choose a game to recreate in code. Use disney ideation, and then break it down to the essence (MVP) and plan what classes you will need, and what state and behavior each class will need. The break each of the behaviors down to a level were you can start coding.
+* JavaScriot
+* Object oriented programming
+* HTML
+* Canvas
+* CSS
+* Adobe Illustrator
 
-## Task 2 - Wed Afternoon
+## View the app
 
-Put each of your classes into a trello board with a todo, doing and done column.
+You can either click on the "view project" hyperlink above or 
 
-## Task 3 - Build Your MVP
+* clone down the repository `https://github.com/Za-Qar/OOP-Shooter-Game-JavaScript.git`
 
-Get the simplest possible version of your game working.
+* open the HTML file
 
-## Task 4 - Next steps
+## Contact method
 
-Choose what your next steps are, what functionality would make the biggest impact. If you've used alert/prompt for your MVP. Display your game on the page either with the DOM or your new canvas games.
+Please don't hesitate in contacting me if you have any questions or need any assistance as I want to hear from you
+[Contact email](mailto:za.qa@outlook.com?subject=[GitHub]%20OOP20%Game%20Shooty)
