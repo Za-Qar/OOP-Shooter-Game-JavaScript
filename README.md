@@ -11,6 +11,11 @@ During a two day hackathon, my teammate and I started planning thinking of an in
 * CSS
 * Adobe Illustrator
 
+## Image
+![Game-play](https://i.imgur.com/5JAzo9z.png)
+![Start-menu](https://i.imgur.com/iP2TUJf.png)
+
+
 ## View the app
 
 You can either click on the "view project" hyperlink above or 
